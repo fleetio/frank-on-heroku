@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Frank's on the scene.</title>
+    <link href='/css/frank.css' rel='stylesheet' type='text/css' />
+    <script src='/js/frank.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='tooltip'>
+        Click for help.
+      </div>
+      <div id='header'>
+        <img src='/images/frank-med.png' />
+        <h1>Frank</h1>
+        <h2>Relax, fella. Frank's got it under control.</h2>
+      </div>
+      <ol id='help'>
+        <li>
+          <p>Edit <em>setup.rb</em> to set your server options, folder names for static/dynamic content, and layouts for your views.</p>
+        </li>
+        <li>
+          <p>Stash your static files (images, flash movies, etc) in the folder that you set as <em>[static_folder]</em>.</p>
+        </li>
+        <li>
+          <p>Frank will look for files in the <em>[dynamic_folder]</em> first and try to compile them.</p>
+          <p>Example: a request for <em>/css/blah.css</em> will look for a file in <em>[dynamic_folder]/css/</em> named <em>blah</em>. Frank uses the file extension to determine the correct compiler.</p>
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
