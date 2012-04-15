@@ -1,19 +1,20 @@
 Overview
 ========
+**Frank on Heroku** is simply a [Frank](https://github.com/blahed/frank) project template that makes 
+it easy to host a Frank-based static site on Heroku.
+
 [Frank](https://github.com/blahed/frank) is useful Ruby gem that lets you build static sites using 
 your favorite libs. Frank has a built in development server for previewing work as you develop, an 
 "export" command for compiling and saving your work out to static html and css, and a publish command 
 for copying your exported pages to a server.
 
 [Heroku's Cedar Stack](https://devcenter.heroku.com/articles/cedar) makes it easy to host a Rack app 
-by adding a `config.ru` file to the root of the project. 
-
-**Frank on Heroku** is simply a Frank project template that makes it easy to host a Frank-based 
-static site on Heroku.
+by adding a `config.ru` file to the root of the project. Frank on Heroku includes a `config.ru` file
+that tells Heroku how to serve up files from the `/exported` folder in a Frank project.
 
 ### Frank on Heroku features
 * Prebuilt `config.ru` file that includes Ryan Tomayko's [TryStatic](https://github.com/rack/rack-contrib/blob/master/lib/rack/contrib/try_static.rb) 
-class which will try and match requests to a static file in the /exported folder (the default export 
+class which will try and match requests to a static file in the `/exported` folder (the default export 
 folder for Frank).
 
         http://www.example.com
@@ -23,8 +24,9 @@ folder for Frank).
         http://www.example.com/tour/request-a-demo
             # => returns /exported/tour/request/request-a-demo.html
         
-* Includes `/heartbeat` request handler that serves a simple 200 response. Great for uptime monitoring.
-* "File not found" (error 404) handling automatically serves `/exported/404.html` to the user.
+* Includes `/heartbeat` request handler that serves a simple `200` response. Great for **uptime 
+monitoring**.
+* `404` ("File not found") error handling automatically serves `/exported/404.html` to the user.
 
 Prerequisites
 -------------
@@ -32,7 +34,7 @@ Prerequisites
 
         $ gem install frank
     
-2. Clone frank-on-heroku template into `~/.frank_templates`
+2. Clone frank-on-heroku files into `~/.frank_templates`
 
         $ cd ~/.frank_templates/
         $ git clone git://github.com/rarestep/frank-on-heroku.git
@@ -40,7 +42,7 @@ Prerequisites
 Creating a new website
 ----------------------
 1. `cd` to the directory where your website code will live (e.g. `cd ~/Dev` )
-2. Create the new Frank project:
+2. Create the new Frank project using the **frank-on-heroku template**:
 
         $ frank new rarestep-www
 
