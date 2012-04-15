@@ -1,0 +1,38 @@
+Overview
+========
+[Frank](https://github.com/blahed/frank) is useful Ruby gem that lets you build static sites using 
+your favorite libs. Frank has a built in development server for previewing work as you develop, an 
+"export" command for compiling and saving your work out to static html and css, and a publish command 
+for copying your exported pages to a server.
+
+[Heroku's Cedar Stack](https://devcenter.heroku.com/articles/cedar) makes it easy to host a Rack app 
+by adding a `config.ru` file to the root of the project. 
+
+**Frank on Heroku** is simply a Frank project template that makes it easy to host a Frank-based 
+static site on Heroku.
+
+### Frank on Heroku features
+* Prebuilt `config.ru` file that includes Ryan Tomayko's [TryStatic](https://github.com/rack/rack-contrib/blob/master/lib/rack/contrib/try_static.rb) 
+class which will try and match requests to a static file in the /exported folder (the default export 
+folder for Frank).
+
+    http://www.example.com
+        # => returns /exported/index.html
+    http://www.example.com/about
+        # => returns /exported/about.html
+    http://www.example.com/tour/request-a-demo
+        # => returns /exported/tour/request/request-a-demo.html
+        
+* Includes `/heartbeat` request handler that serves a simple 200 response. Great for uptime monitoring.
+* "File not found" (error 404) handling automatically serves `/exported/404.html` to the user.
+
+Prerequisites
+-------------
+1. Make sure [frank](https://rubygems.org/gems/frank) gem is installed. Install the gem if not:
+
+    $ gem install frank
+    
+2. Clone frank-on-heroku template into `~/.frank_templates`
+
+    $ cd ~/.frank_templates/
+    $ git clone git://github.com/rarestep/frank-on-heroku.git
